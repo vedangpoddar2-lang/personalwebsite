@@ -1,0 +1,44 @@
+.hero {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.intro h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+}
+
+.intro p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.8;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sectionTitle::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--secondary);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+.emptyState {
+  text-align: center;
+  opacity: 0.5;
+  font-style: italic;
+}

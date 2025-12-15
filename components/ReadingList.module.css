@@ -1,0 +1,90 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.tag.reading {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.tag.viewing {
+    background-color: #fce4ec;
+    color: #c2185b;
+}
+
+.tag.listening {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.date {
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.title a {
+    text-decoration: none;
+    color: var(--foreground);
+}
+
+.title a:hover {
+    color: var(--primary);
+}
+
+.description {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    align-self: flex-start;
+}
+
+.link:hover {
+    text-decoration: underline;
+}

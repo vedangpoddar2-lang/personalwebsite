@@ -1,0 +1,110 @@
+.tableWrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.table th {
+    text-align: left;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid var(--border);
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+.table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.dateCell {
+    width: 80px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.titleCell {
+    width: 200px;
+    font-weight: 600;
+}
+
+.projectLink {
+    color: var(--primary);
+}
+
+.projectLink:hover {
+    text-decoration: underline;
+}
+
+.descCell {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 300px;
+    /* Limit width to prevent scrolling */
+}
+
+.shortDesc {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.moreBtn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+}
+
+.moreBtn:hover {
+    text-decoration: underline;
+}
+
+.filesCell {
+    width: 150px;
+}
+
+.fileBtn {
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    background-color: var(--secondary);
+    color: #004d40;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.fileBtn:hover {
+    opacity: 0.8;
+}
+
+.detailsRow td {
+    background-color: #fafafa;
+    padding: 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.detailsContent {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
