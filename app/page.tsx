@@ -21,7 +21,13 @@ async function getData() {
         asset->
       }
     },
-    "highlights": *[_type == "highlight"] | order(order asc)
+    "highlights": *[_type == "highlight"] | order(order asc) {
+      ...,
+      image {
+        ...,
+        asset->
+      }
+    }
   }`;
   return client.fetch(query);
 }

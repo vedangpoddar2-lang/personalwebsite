@@ -18,6 +18,15 @@ export const highlight = defineType({
             description: 'Full achievement description shown on hover.',
         }),
         defineField({
+            name: 'image',
+            title: 'Image',
+            type: 'image',
+            options: {
+                hotspot: true,
+            },
+            description: 'Optional image/icon for the highlight.',
+        }),
+        defineField({
             name: 'order',
             title: 'Display Order',
             type: 'number',
