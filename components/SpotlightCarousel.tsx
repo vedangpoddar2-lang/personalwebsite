@@ -38,10 +38,12 @@ export default function SpotlightCarousel({ items }: SpotlightCarouselProps) {
                         <div className={styles.imageWrapper}>
                             {item.image && (
                                 <Image
-                                    src={urlFor(item.image).width(400).url()}
+                                    src={urlFor(item.image).width(600).height(800).url()}
                                     alt={item.title}
                                     fill
                                     className={styles.image}
+                                    quality={100}
+                                    sizes="(max-width: 768px) 100vw, 300px"
                                 />
                             )}
                         </div>
