@@ -27,6 +27,12 @@ export const highlight = defineType({
             description: 'Optional image/icon for the highlight.',
         }),
         defineField({
+            name: 'link',
+            title: 'External Link',
+            type: 'url',
+            description: 'Optional URL to link to when clicked.',
+        }),
+        defineField({
             name: 'order',
             title: 'Display Order',
             type: 'number',

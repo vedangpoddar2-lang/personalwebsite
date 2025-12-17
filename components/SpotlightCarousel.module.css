@@ -6,8 +6,11 @@
 .grid {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 2.5rem;
+    /* Increased gap for larger hover scale */
     flex-wrap: wrap;
+    padding: 2rem 0;
+    /* Add padding for hover overflow */
 }
 
 .card {
@@ -16,11 +19,21 @@
     height: 400px;
     background: #fff;
     border-radius: 1rem;
-    overflow: hidden;
+    overflow: visible;
+    /* Allow scaling to overflow */
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(0, 0, 0, 0.05);
+    z-index: 1;
+}
+
+.linkWrapper {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
 }
 
 .imageWrapper {
@@ -30,10 +43,18 @@
     width: 100%;
     height: 100%;
     z-index: 1;
+    background-color: #f9f9f9;
+    /* Light background for contained images */
+    border-radius: 1rem;
+    /* Match card radius */
+    overflow: hidden;
 }
 
 .image {
-    object-fit: cover;
+    object-fit: contain;
+    /* Show full image */
+    padding: 1rem;
+    /* Padding inside the frame */
     transition: transform 0.6s ease;
 }
 
@@ -49,13 +70,13 @@
     left: 0;
     width: 100%;
     background: #fff;
-    /* Solid background for readability */
     padding: 1.5rem;
     z-index: 3;
     transform: translateY(calc(100% - 80px));
     /* Show only title initially */
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 0 0 1rem 1rem;
 }
 
 .title {
@@ -63,7 +84,6 @@
     font-weight: 700;
     margin-bottom: 0.8rem;
     color: var(--foreground);
-    /* Dark text */
     line-height: 1.3;
     padding: 0;
     border: none;
@@ -73,7 +93,6 @@
     font-size: 0.95rem;
     line-height: 1.6;
     color: #555;
-    /* Dark grey for description */
     opacity: 0;
     transition: opacity 0.3s ease 0.1s;
 }
@@ -81,14 +100,16 @@
 /* Hover State */
 .card:hover,
 .active {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    transform: scale(1.3) translateY(-10px);
+    /* 30% larger + lift */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    /* Ensure it overlaps everything */
 }
 
 .card:hover .content,
 .active .content {
     transform: translateY(0);
-    /* Slide up to show description */
 }
 
 .card:hover .description,

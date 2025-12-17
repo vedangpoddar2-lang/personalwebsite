@@ -23,6 +23,7 @@ async function getData() {
     },
     "highlights": *[_type == "highlight"] | order(order asc) {
       ...,
+      link,
       image {
         ...,
         asset->
