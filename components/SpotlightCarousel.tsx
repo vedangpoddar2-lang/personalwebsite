@@ -39,6 +39,7 @@ export default function SpotlightCarousel({ items }: SpotlightCarouselProps) {
 
     return (
         <div className={styles.container}>
+            <h2 className={styles.sectionTitle}>Highlights</h2>
             <div className={styles.carouselWrapper}>
                 <button
                     className={`${styles.navButton} ${styles.prevButton}`}
