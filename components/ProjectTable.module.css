@@ -13,9 +13,7 @@
 
 .table th {
     text-align: center;
-    /* Center align headers */
     padding: 1rem;
-    /* Reduced padding */
     background-color: transparent;
     border-bottom: 1px solid var(--secondary);
     font-weight: 600;
@@ -28,12 +26,9 @@
 
 .table td {
     padding: 1rem;
-    /* Reduced padding significantly */
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     vertical-align: middle;
-    /* Center align vertically */
     text-align: center;
-    /* Center align horizontally */
 }
 
 .table tr:last-child td {
@@ -64,9 +59,7 @@
     display: inline-block;
     padding: 0.2rem 0.6rem;
     background-color: #e3f2fd;
-    /* Light blue background like the example */
     color: #1565c0;
-    /* Darker blue text */
     border-radius: 4px;
     font-size: 0.7rem;
     font-weight: 600;
@@ -91,9 +84,7 @@
     color: #444;
     position: relative;
     text-align: left;
-    /* Left align description */
     padding-bottom: 1.8rem;
-    /* Reduced padding for button space */
 }
 
 .shortDesc {
@@ -115,9 +106,7 @@
     letter-spacing: 0.05em;
     position: absolute;
     bottom: 0.5rem;
-    /* Moved closer to bottom */
     right: 0;
-    /* Aligned to right edge */
 }
 
 .moreBtn:hover {
@@ -126,7 +115,6 @@
 
 .filesCell {
     width: 280px;
-    /* Reduced width to match smaller thumbnails */
 }
 
 .noFiles {
@@ -139,7 +127,6 @@
     padding: 2rem;
     border-bottom: 1px solid var(--border);
     text-align: left;
-    /* Reset text align for details */
 }
 
 .detailsContent {
@@ -179,4 +166,42 @@
     background: var(--foreground);
     color: var(--background);
     border-color: var(--foreground);
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+
+    .table th,
+    .table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .titleCell {
+        width: auto;
+        font-size: 1rem;
+    }
+
+    .dateCell {
+        width: auto;
+        font-size: 0.85rem;
+    }
+
+    .filesCell {
+        width: auto;
+    }
+
+    .categoryBadge {
+        padding: 0.15rem 0.4rem;
+        font-size: 0.65rem;
+    }
+
+    .filterContainer {
+        gap: 0.5rem;
+    }
+
+    .filterBtn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
 }
