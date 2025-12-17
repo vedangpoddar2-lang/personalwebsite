@@ -13,10 +13,16 @@ async function getData() {
     description,
     date,
     link,
+    category,
     files[]{
       _key,
+      _type,
+      title,
+      thumbnail,
       "url": asset->url,
-      "originalFilename": asset->originalFilename
+      "originalFilename": asset->originalFilename,
+      "mimeType": asset->mimeType,
+      "size": asset->size
     }
   }`;
     return client.fetch(query);

@@ -1,26 +1,33 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import styles from './Navbar.module.css';
-import ScrambleText from './ScrambleText';
 
 export default function Navbar() {
+    const pathname = usePathname();
+
+    const navItems = [
+        { name: 'Home', path: '/' },
+        { name: 'Reading', path: '/reading' },
+        { name: 'Projects', path: '/projects' },
+    ];
+
     return (
         <nav className={styles.nav}>
             <div className={`container ${styles.container}`}>
-                <Link href="/" className={styles.logo}>
-                    <ScrambleText text="VEDANG_PODDAR" />
-                </Link>
-
-                <div className={styles.rightSide}>
-                    <ul className={styles.links}>
-                        <li><Link href="/">Home</Link></li>
-                        <li><Link href="/reading">Reading</Link></li>
-                        <li><Link href="/projects">Projects</Link></li>
-                    </ul>
-                    <div className={styles.statusBadge}>
-                        <span className={styles.statusDot}></span>
-                        <span className={styles.statusText}>ONLINE</span>
-                    </div>
-                </div>
+                <ul className={styles.links}>
+                    {navItems.map((item) => (
+                        <li key={item.path}>
+                            <Link
+                                href={item.path}
+                                className={`${styles.link} ${pathname === item.path ? styles.active : ''}`}
+                            >
+                                {item.name}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </nav>
     );

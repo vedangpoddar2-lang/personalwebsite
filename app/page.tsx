@@ -1,6 +1,7 @@
 import { client } from '@/sanity/lib/client';
 import Navbar from '@/components/Navbar';
 import PhotoCarousel from '@/components/PhotoCarousel';
+
 import Timeline from '@/components/Timeline';
 import EducationList from '@/components/EducationList';
 import { PortableText } from '@portabletext/react';
@@ -33,12 +34,18 @@ export default async function Home() {
       <Navbar />
 
       <section className={`section ${styles.hero} animate-in`}>
-        <div className="container">
-          {profile?.photos && <PhotoCarousel photos={profile.photos} />}
+        <div className={`container ${styles.heroContainer}`}>
+          {profile?.photos && (
+            <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+              <PhotoCarousel photos={profile.photos} />
+            </div>
+          )}
           <div className={styles.intro}>
-            <h1>{profile?.name || 'Welcome'}</h1>
+            <h1 className={styles.heroName}>
+              {profile?.name || 'VEDANG_PODDAR'}
+            </h1>
             {profile?.shortDescription && (
-              <div style={{ maxWidth: '600px', margin: '0 auto', opacity: 0.8 }}>
+              <div className="portable-text">
                 <PortableText value={profile.shortDescription} />
               </div>
             )}

@@ -11,6 +11,12 @@ export const project = defineType({
             type: 'string',
         }),
         defineField({
+            name: 'category',
+            title: 'Category',
+            type: 'string',
+            description: 'e.g., "Finance", "Tech", "Consulting"',
+        }),
+        defineField({
             name: 'shortDescription',
             title: 'Short Description',
             type: 'string',
@@ -32,7 +38,25 @@ export const project = defineType({
             name: 'files',
             title: 'Files (PDF, PPT, Excel, etc.)',
             type: 'array',
-            of: [{ type: 'file' }],
+            of: [
+                {
+                    type: 'file',
+                    fields: [
+                        {
+                            name: 'title',
+                            type: 'string',
+                            title: 'Title',
+                            description: 'Display name for the file (e.g., "Pitch Deck")',
+                        },
+                        {
+                            name: 'thumbnail',
+                            type: 'image',
+                            title: 'Thumbnail',
+                            description: 'Optional preview image for the file.',
+                        },
+                    ],
+                },
+            ],
             description: 'Upload your project documents here.',
         }),
         defineField({

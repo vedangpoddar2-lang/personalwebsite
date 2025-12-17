@@ -84,7 +84,7 @@ export default function Timeline({ items }: TimelineProps) {
                         </div>
 
                         {expandedIds.includes(item._id) && item.details && (
-                            <div className={styles.details}>
+                            <div className={`${styles.details} portable-text`}>
                                 <PortableText value={item.details} />
                             </div>
                         )}

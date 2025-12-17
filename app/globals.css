@@ -149,3 +149,18 @@ h4 {
 .delay-3 {
   animation-delay: 0.3s;
 }
+
+/* Portable Text Spacing */
+.portable-text p {
+  margin-bottom: 1.5rem;
+}
+
+.portable-text ul,
+.portable-text ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.portable-text li {
+  margin-bottom: 0.5rem;
+}
