@@ -5,7 +5,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './Navbar.module.css';
 
-export default function Navbar() {
+interface NavbarProps {
+    resumeUrl?: string;
+}
+
+export default function Navbar({ resumeUrl }: NavbarProps) {
     const pathname = usePathname();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -45,6 +49,18 @@ export default function Navbar() {
                             </Link>
                         </li>
                     ))}
+                    {resumeUrl && (
+                        <li>
+                            <a
+                                href={resumeUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.resumeBtn}
+                            >
+                                Download CV
+                            </a>
+                        </li>
+                    )}
                 </ul>
 
                 {/* Mobile Menu Overlay */}
@@ -61,6 +77,19 @@ export default function Navbar() {
                                 </Link>
                             </li>
                         ))}
+                        {resumeUrl && (
+                            <li>
+                                <a
+                                    href={resumeUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.mobileLink}
+                                    style={{ fontSize: '1.5rem', opacity: 1, color: 'var(--primary)' }}
+                                >
+                                    Download CV
+                                </a>
+                            </li>
+                        )}
                     </ul>
                 </div>
             </div>

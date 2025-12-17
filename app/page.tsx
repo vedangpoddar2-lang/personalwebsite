@@ -1,5 +1,5 @@
 import { client } from '@/sanity/lib/client';
-import Navbar from '@/components/Navbar';
+
 import PhotoCarousel from '@/components/PhotoCarousel';
 import SpotlightCarousel from '@/components/SpotlightCarousel';
 import Timeline from '@/components/Timeline';
@@ -39,7 +39,7 @@ export default async function Home() {
 
   return (
     <main>
-      <Navbar />
+
 
       <section className={`section ${styles.hero} animate-in`}>
         <div className={`container ${styles.heroContainer}`}>

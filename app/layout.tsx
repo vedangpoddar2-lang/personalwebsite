@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
 import "./globals.css";
+import { client } from "@/sanity/lib/client";
+import Navbar from "@/components/Navbar";
+import BottomBanner from "@/components/BottomBanner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,15 +23,31 @@ export const metadata: Metadata = {
   description: "My personal portfolio and reading list.",
 };
 
-export default function RootLayout({
+// Revalidate every 60 seconds
+export const revalidate = 60;
+
+async function getGlobalData() {
+  const query = `*[_type == "profile"][0] {
+    "resumeUrl": resume.asset->url,
+    bannerText
+  }`;
+  return client.fetch(query);
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const data = await getGlobalData();
+  const { resumeUrl, bannerText } = data || {};
+
   return (
     <html lang="en">
       <body className={`${inter.variable} ${merriweather.variable}`}>
+        <Navbar resumeUrl={resumeUrl} />
         {children}
+        <BottomBanner text={bannerText} />
       </body>
     </html>
   );

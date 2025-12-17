@@ -1,5 +1,5 @@
 import { client } from '@/sanity/lib/client';
-import Navbar from '@/components/Navbar';
+
 import ProjectTable from '@/components/ProjectTable';
 
 export const revalidate = 60;
@@ -33,7 +33,7 @@ export default async function ProjectsPage() {
 
     return (
         <main>
-            <Navbar />
+
             <div className="container section">
                 <h1 style={{ textAlign: 'center', marginBottom: '2rem' }}>Research & Projects</h1>
                 <p style={{ textAlign: 'center', opacity: 0.7, maxWidth: '600px', margin: '0 auto 3rem' }}>

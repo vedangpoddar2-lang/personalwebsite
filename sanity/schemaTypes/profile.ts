@@ -24,5 +24,17 @@ export const profile = defineType({
             of: [{ type: 'image' }],
             description: 'Add a few photos for the landing page center grid.',
         }),
+        defineField({
+            name: 'bannerText',
+            title: 'Bottom Banner Text',
+            type: 'string',
+            description: 'Text to display in the bottom banner (e.g., "Open to work").',
+        }),
+        defineField({
+            name: 'resume',
+            title: 'Resume / CV',
+            type: 'file',
+            description: 'Upload your CV (PDF recommended).',
+        }),
     ],
 })
