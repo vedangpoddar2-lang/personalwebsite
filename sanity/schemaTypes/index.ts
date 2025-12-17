@@ -4,7 +4,8 @@ import { workExperience } from './work'
 import { education } from './education'
 import { readingItem } from './reading'
 import { project } from './project'
+import { highlight } from './highlight'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-    types: [profile, workExperience, education, readingItem, project],
+    types: [profile, workExperience, education, readingItem, project, highlight],
 }

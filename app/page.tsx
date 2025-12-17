@@ -1,7 +1,7 @@
 import { client } from '@/sanity/lib/client';
 import Navbar from '@/components/Navbar';
 import PhotoCarousel from '@/components/PhotoCarousel';
-
+import SpotlightCarousel from '@/components/SpotlightCarousel';
 import Timeline from '@/components/Timeline';
 import EducationList from '@/components/EducationList';
 import { PortableText } from '@portabletext/react';
@@ -20,14 +20,15 @@ async function getData() {
         ...,
         asset->
       }
-    }
+    },
+    "highlights": *[_type == "highlight"] | order(order asc)
   }`;
   return client.fetch(query);
 }
 
 export default async function Home() {
   const data = await getData();
-  const { profile, work, education } = data;
+  const { profile, work, education, highlights } = data;
 
   return (
     <main>
@@ -52,6 +53,15 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      {/* Highlights Section */}
+      {highlights && highlights.length > 0 && (
+        <section className="section animate-in">
+          <div className="container">
+            <SpotlightCarousel items={highlights} />
+          </div>
+        </section>
+      )}
 
       <section className="section animate-in delay-1">
         <div className="container">
