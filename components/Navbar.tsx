@@ -15,7 +15,6 @@ export default function Navbar({ resumeUrl }: NavbarProps) {
 
     const navItems = [
         { name: 'Home', path: '/' },
-        { name: 'Reading', path: '/reading' },
         { name: 'Projects', path: '/projects' },
     ];
 

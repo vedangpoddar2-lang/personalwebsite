@@ -73,7 +73,7 @@ export default function Timeline({ items }: TimelineProps) {
                                 <h4 className={styles.company}>
                                     {item.company}
                                     <span className={styles.inlineDate}>
-                                        {new Date(item.startDate).getFullYear()} - {item.endDate ? new Date(item.endDate).getFullYear() : 'Present'}
+                                        {new Date(item.startDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })} - {item.endDate ? new Date(item.endDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : 'Present'}
                                     </span>
                                 </h4>
                                 <p className={styles.shortDesc}>{item.shortDescription}</p>
