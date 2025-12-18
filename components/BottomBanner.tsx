@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import styles from './BottomBanner.module.css';
 
 interface BottomBannerProps {
@@ -8,9 +9,12 @@ interface BottomBannerProps {
 }
 
 export default function BottomBanner({ text }: BottomBannerProps) {
+    const pathname = usePathname();
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
+        if (pathname?.startsWith('/studio')) return;
+
         const handleScroll = () => {
             const scrolledToBottom =
                 window.innerHeight + window.scrollY >= document.body.offsetHeight - 50; // 50px buffer
@@ -21,7 +25,7 @@ export default function BottomBanner({ text }: BottomBannerProps) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    if (!text) return null;
+    if (!text || pathname?.startsWith('/studio')) return null;
 
     return (
         <div className={`${styles.banner} ${isVisible ? styles.visible : ''}`}>

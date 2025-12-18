@@ -70,7 +70,9 @@ h1 {
 
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
   border-bottom: 2px solid var(--primary);
   /* Subtle underline accent */
   display: inline-block;
@@ -90,6 +92,14 @@ h3 {
 
 h4 {
   font-size: 1.2rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+}
+
+h6 {
+  font-size: 1rem;
 }
 
 /* Utility Classes */
