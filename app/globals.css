@@ -174,4 +174,42 @@ h6 {
 
 .portable-text li {
   margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+/* Premium Typography Features */
+.portable-text strong {
+  font-weight: 700;
+  color: var(--primary);
+  background: linear-gradient(120deg, rgba(0, 51, 102, 0.1) 0%, rgba(0, 51, 102, 0.1) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  background-position: 0 88%;
+  padding: 0 2px;
+}
+
+.portable-text ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.portable-text ul li::before {
+  content: '→';
+  color: var(--primary);
+  font-weight: bold;
+  display: inline-block;
+  width: 1.5em;
+  margin-left: -1.5em;
+}
+
+.portable-text blockquote {
+  border-left: 4px solid var(--primary);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--foreground);
+  background: rgba(0, 51, 102, 0.03);
+  padding: 1.5rem;
+  border-radius: 0 8px 8px 0;
 }
