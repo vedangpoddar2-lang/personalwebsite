@@ -71,15 +71,7 @@
   transform: translateX(-50%);
 }
 
-.sectionTitle::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background-color: var(--secondary);
-  margin: 0.5rem auto 0;
-  border-radius: 2px;
-}
+
 
 .emptyState {
   text-align: center;
