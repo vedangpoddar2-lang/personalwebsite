@@ -1,0 +1,184 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns for better balance */
+    grid-template-rows: auto;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 220px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 51, 102, 0.08);
+    border-color: rgba(0, 51, 102, 0.1);
+}
+
+/* Typography Standards */
+.cardLabel {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    opacity: 0.6;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.cardTitle {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+.cardDesc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+    font-weight: 400;
+}
+
+/* --- Specific Card Tweaks (Subtle) --- */
+
+/* 1. The Builder */
+.cardBuilder {
+    grid-column: span 1;
+}
+
+/* 2. The Competitor */
+.cardCompetitor {
+    grid-column: span 1;
+}
+
+.competitorList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.competitorList li {
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.competitorList li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 4px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 50%;
+}
+
+/* 3. The Leader (Full Width) */
+.cardLeader {
+    grid-column: span 2;
+    background: linear-gradient(to right, #fff, #fafafa);
+}
+
+/* 4. The Pivot (Full Width) */
+.cardPivot {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pivotContainer {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.pivotItem {
+    text-align: left;
+}
+
+.pivotValue {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--foreground);
+}
+
+.pivotLine {
+    flex: 1;
+    height: 1px;
+    background: var(--secondary);
+    position: relative;
+}
+
+.pivotLine::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -3px;
+    width: 6px;
+    height: 6px;
+    border-top: 1px solid var(--secondary);
+    border-right: 1px solid var(--secondary);
+    transform: rotate(45deg);
+}
+
+/* --- Dynamic Card Sizes --- */
+
+.cardSmall {
+    grid-column: span 1;
+}
+
+.cardLarge {
+    grid-column: span 2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card,
+    .cardSmall,
+    .cardLarge {
+        grid-column: span 1 !important;
+    }
+
+    .pivotContainer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 0;
+    }
+
+    .pivotLine {
+        width: 2px;
+        height: 20px;
+        margin-left: 1rem;
+    }
+}

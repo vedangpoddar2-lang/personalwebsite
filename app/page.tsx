@@ -16,6 +16,12 @@ async function getData() {
     "work": *[_type == "workExperience"] | order(startDate desc),
     "education": *[_type == "education"] | order(startDate desc) {
       ...,
+      bentoCards[]{
+        ...,
+        _type == 'bentoCard' => {
+          ...
+        }
+      },
       media[]{
         ...,
         asset->

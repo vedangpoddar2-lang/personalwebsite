@@ -86,5 +86,13 @@ export const education = defineType({
                 }
             ],
         }),
+        defineField({
+            name: 'bentoCards',
+            title: 'Achievement Cards (Bento Grid)',
+            type: 'array',
+            of: [{ type: 'bentoCard' }],
+            description: 'Add cards to display key achievements in a grid layout.',
+        }),
+
     ],
 })
