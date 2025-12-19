@@ -213,3 +213,22 @@ h6 {
   padding: 1.5rem;
   border-radius: 0 8px 8px 0;
 }
+
+/* Text Sizes */
+.text-small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #666;
+}
+
+.text-normal {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.text-large {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  font-weight: 500;
+  color: var(--primary);
+}

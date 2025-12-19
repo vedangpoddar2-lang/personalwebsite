@@ -39,17 +39,6 @@ export const education = defineType({
             type: 'number',
             description: 'Width/Height of the logo in pixels. Default is 100.',
             initialValue: 100,
-            validation: (Rule) => Rule.min(50).max(300),
-        }),
-        defineField({
-            name: 'description',
-            title: 'Description',
-            type: 'array',
-            of: [{ type: 'block' }],
-        }),
-        defineField({
-            name: 'media',
-            title: 'Media / Attachments',
             type: 'array',
             options: {
                 layout: 'grid',

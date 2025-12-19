@@ -1,4 +1,5 @@
 import { PortableText } from '@portabletext/react';
+import { CustomPortableTextComponents } from './PortableTextComponents';
 import styles from './BentoGrid.module.css';
 
 interface BentoCardData {
@@ -39,7 +40,7 @@ export default function BentoGrid({ items }: BentoGridProps) {
                             <>
                                 <h3 className={styles.cardTitle}>{card.title}</h3>
                                 <div className={styles.cardDesc}>
-                                    <PortableText value={card.content} />
+                                    <PortableText value={card.content} components={CustomPortableTextComponents} />
                                 </div>
                             </>
                         )}
@@ -62,14 +63,14 @@ export default function BentoGrid({ items }: BentoGridProps) {
                                 <div className={styles.pivotItem}>
                                     <span className={styles.cardLabel}>{card.flowData.labelFrom || 'Start'}</span>
                                     <div className={styles.pivotValue}>
-                                        <PortableText value={card.flowData.valueFrom} />
+                                        <PortableText value={card.flowData.valueFrom} components={CustomPortableTextComponents} />
                                     </div>
                                 </div>
                                 <div className={styles.pivotLine}></div>
                                 <div className={styles.pivotItem}>
                                     <span className={styles.cardLabel}>{card.flowData.labelTo || 'End'}</span>
                                     <div className={styles.pivotValue}>
-                                        <PortableText value={card.flowData.valueTo} />
+                                        <PortableText value={card.flowData.valueTo} components={CustomPortableTextComponents} />
                                     </div>
                                 </div>
                             </div>

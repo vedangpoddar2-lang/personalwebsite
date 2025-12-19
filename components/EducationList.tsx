@@ -7,6 +7,7 @@ import { urlFor } from '@/sanity/lib/image';
 import styles from './EducationList.module.css';
 import MediaGallery from './MediaGallery';
 import BentoGrid from './BentoGrid';
+import { CustomPortableTextComponents } from './PortableTextComponents';
 
 interface EducationItem {
     _id: string;

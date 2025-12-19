@@ -41,7 +41,19 @@ export const workExperience = defineType({
             name: 'details',
             title: 'Detailed Description',
             type: 'array',
-            of: [{ type: 'block' }],
+            of: [{
+                type: 'block',
+                styles: [
+                    { title: 'Small', value: 'small' },
+                    { title: 'Normal', value: 'normal' },
+                    { title: 'Large', value: 'large' },
+                    { title: 'Heading 3', value: 'h3' },
+                    { title: 'Heading 4', value: 'h4' },
+                    { title: 'Heading 5', value: 'h5' },
+                    { title: 'Heading 6', value: 'h6' },
+                    { title: 'Quote', value: 'blockquote' },
+                ]
+            }],
             description: 'Full details shown when expanded.',
         }),
     ],

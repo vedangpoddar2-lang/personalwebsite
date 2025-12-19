@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { urlFor } from '@/sanity/lib/image';
 import styles from './Timeline.module.css';
+import { CustomPortableTextComponents } from './PortableTextComponents';
 
 interface WorkItem {
     _id: string;
@@ -85,7 +86,7 @@ export default function Timeline({ items }: TimelineProps) {
 
                         {expandedIds.includes(item._id) && item.details && (
                             <div className={`${styles.details} portable-text`}>
-                                <PortableText value={item.details} />
+                                <PortableText value={item.details} components={CustomPortableTextComponents} />
                             </div>
                         )}
                     </div>

@@ -49,7 +49,19 @@ export const bentoCard = defineType({
             name: 'content',
             title: 'Content',
             type: 'array',
-            of: [{ type: 'block' }],
+            of: [{
+                type: 'block',
+                styles: [
+                    { title: 'Small', value: 'small' },
+                    { title: 'Normal', value: 'normal' },
+                    { title: 'Large', value: 'large' },
+                    { title: 'Heading 3', value: 'h3' },
+                    { title: 'Heading 4', value: 'h4' },
+                    { title: 'Heading 5', value: 'h5' },
+                    { title: 'Heading 6', value: 'h6' },
+                    { title: 'Quote', value: 'blockquote' },
+                ]
+            }],
             hidden: ({ parent }) => parent?.type !== 'text',
         }),
         // Content for 'list' type
@@ -72,14 +84,38 @@ export const bentoCard = defineType({
                     name: 'valueFrom',
                     title: 'Value (Start)',
                     type: 'array',
-                    of: [{ type: 'block' }]
+                    of: [{
+                        type: 'block',
+                        styles: [
+                            { title: 'Small', value: 'small' },
+                            { title: 'Normal', value: 'normal' },
+                            { title: 'Large', value: 'large' },
+                            { title: 'Heading 3', value: 'h3' },
+                            { title: 'Heading 4', value: 'h4' },
+                            { title: 'Heading 5', value: 'h5' },
+                            { title: 'Heading 6', value: 'h6' },
+                            { title: 'Quote', value: 'blockquote' },
+                        ]
+                    }]
                 }),
                 defineField({ name: 'labelTo', title: 'Label (End)', type: 'string' }),
                 defineField({
                     name: 'valueTo',
                     title: 'Value (End)',
                     type: 'array',
-                    of: [{ type: 'block' }]
+                    of: [{
+                        type: 'block',
+                        styles: [
+                            { title: 'Small', value: 'small' },
+                            { title: 'Normal', value: 'normal' },
+                            { title: 'Large', value: 'large' },
+                            { title: 'Heading 3', value: 'h3' },
+                            { title: 'Heading 4', value: 'h4' },
+                            { title: 'Heading 5', value: 'h5' },
+                            { title: 'Heading 6', value: 'h6' },
+                            { title: 'Quote', value: 'blockquote' },
+                        ]
+                    }]
                 }),
             ],
         }),

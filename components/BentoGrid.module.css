@@ -111,27 +111,6 @@
 .pivotContainer {
     display: flex;
     align-items: center;
-    gap: 2rem;
-    width: 100%;
-    justify-content: space-between;
-    padding: 0 2rem;
-}
-
-.pivotItem {
-    text-align: left;
-}
-
-.pivotValue {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--foreground);
-}
-
-.pivotLine {
-    flex: 1;
-    height: 1px;
-    background: var(--secondary);
     position: relative;
 }
 
