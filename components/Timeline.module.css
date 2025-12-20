@@ -121,8 +121,15 @@
 .shortDesc {
     font-size: 1.1rem;
     line-height: 1.6;
-    opacity: 0.8;
     max-width: 650px;
+    font-weight: 700;
+    color: var(--primary);
+    background: linear-gradient(120deg, rgba(0, 51, 102, 0.1) 0%, rgba(0, 51, 102, 0.1) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 40%;
+    background-position: 0 88%;
+    padding: 0 2px;
+    display: inline;
 }
 
 .expandBtn {
