@@ -5,6 +5,7 @@ import SpotlightCarousel from '@/components/SpotlightCarousel';
 import Timeline from '@/components/Timeline';
 import EducationList from '@/components/EducationList';
 import { PortableText } from '@portabletext/react';
+import { CustomPortableTextComponents } from '@/components/PortableTextComponents';
 import styles from './page.module.css';
 
 // Revalidate every 60 seconds
@@ -60,7 +61,7 @@ export default async function Home() {
             </h1>
             {profile?.shortDescription && (
               <div className="portable-text">
-                <PortableText value={profile.shortDescription} />
+                <PortableText value={profile.shortDescription} components={CustomPortableTextComponents} />
               </div>
             )}
           </div>

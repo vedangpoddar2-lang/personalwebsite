@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Merriweather } from "next/font/google";
+import { Inter, Merriweather, Patrick_Hand } from "next/font/google";
 import "./globals.css";
 import { client } from "@/sanity/lib/client";
 import Navbar from "@/components/Navbar";
@@ -15,6 +15,13 @@ const merriweather = Merriweather({
   weight: ["300", "400", "700", "900"],
   subsets: ["latin"],
   variable: "--font-serif",
+  display: "swap",
+});
+
+const patrickHand = Patrick_Hand({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-cursive",
   display: "swap",
 });
 
@@ -44,7 +51,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${merriweather.variable}`}>
+      <body className={`${inter.variable} ${merriweather.variable} ${patrickHand.variable}`}>
         <Navbar resumeUrl={resumeUrl} />
         {children}
         <BottomBanner text={bannerText} />

@@ -31,29 +31,32 @@
 }
 
 /* Typography Standards */
-.cardLabel {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--primary);
-    opacity: 0.6;
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
 
+/* Title is now Bold Text Style (Serif, Highlighted) */
 .cardTitle {
     font-family: var(--font-serif);
+    font-weight: 800;
     font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--foreground);
-    margin-bottom: 0.75rem;
+    color: var(--primary);
+    background: linear-gradient(120deg, rgba(0, 51, 102, 0.1) 0%, rgba(0, 51, 102, 0.1) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 40%;
+    background-position: 0 88%;
+    padding: 0 2px;
+    margin-bottom: 0.5rem;
     line-height: 1.2;
+    display: inline;
 }
 
-.cardDesc {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #555;
+.cardTitle:hover {
+    background-size: 100% 100%;
+    transition: background-size 0.3s ease;
+}
+
+/* Subtitle is simple text under title */
+.cardSubtitle {
+    font-size: 1.1rem;
+    font-family: var(--font-serif);
     font-weight: 400;
 }
 
@@ -104,13 +107,29 @@
 .cardPivot {
     grid-column: span 2;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .pivotContainer {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+    gap: 1rem;
+}
+
+.pivotItem {
+    flex: 1;
+}
+
+.pivotLine {
+    flex: 0 0 auto;
+    width: 2rem;
+    height: 1px;
+    background: #eee;
+    margin-top: 1.5rem;
     position: relative;
 }
 

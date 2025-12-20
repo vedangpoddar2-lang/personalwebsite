@@ -12,10 +12,10 @@ export const bentoCard = defineType({
             validation: (Rule) => Rule.required(),
         }),
         defineField({
-            name: 'label',
-            title: 'Label (Top Small Text)',
+            name: 'subtitle',
+            title: 'Subtitle (Text under Title)',
             type: 'string',
-            description: 'e.g., ENGINEERING, LEADERSHIP',
+            description: 'Simple text displayed below the title.',
         }),
         defineField({
             name: 'size',
@@ -123,7 +123,7 @@ export const bentoCard = defineType({
     preview: {
         select: {
             title: 'title',
-            subtitle: 'label',
+            subtitle: 'subtitle',
         },
     },
 })

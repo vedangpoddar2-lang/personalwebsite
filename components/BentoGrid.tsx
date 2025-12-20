@@ -5,7 +5,7 @@ import styles from './BentoGrid.module.css';
 interface BentoCardData {
     _key: string;
     title: string;
-    label?: string;
+    subtitle?: string;
     size?: 'small' | 'large';
     type?: 'text' | 'list' | 'flow';
     content?: any;
@@ -29,25 +29,29 @@ export default function BentoGrid({ items }: BentoGridProps) {
         <div className={styles.grid}>
             {items.map((card) => {
                 const isLarge = card.size === 'large';
-                const cardClass = `${styles.card} ${isLarge ? styles.cardLarge : styles.cardSmall}`;
+                const cardClass = `${styles.card} ${isLarge ? styles.cardLarge : styles.cardSmall} ${card.type === 'flow' ? styles.cardPivot : ''}`;
 
                 return (
                     <div key={card._key} className={cardClass}>
-                        {card.label && <span className={styles.cardLabel}>{card.label}</span>}
+                        {/* Title is now the Pill Badge */}
+                        <h3 className={styles.cardTitle}>{card.title}</h3>
+
+                        {/* Subtitle is the simple text below title */}
+                        {card.subtitle && (
+                            <div className={styles.cardSubtitle}>
+                                {card.subtitle}
+                            </div>
+                        )}
 
                         {/* Render based on type */}
                         {card.type === 'text' && (
-                            <>
-                                <h3 className={styles.cardTitle}>{card.title}</h3>
-                                <div className={styles.cardDesc}>
-                                    <PortableText value={card.content} components={CustomPortableTextComponents} />
-                                </div>
-                            </>
+                            <div className={`${styles.cardDesc} portable-text`}>
+                                <PortableText value={card.content} components={CustomPortableTextComponents} />
+                            </div>
                         )}
 
                         {card.type === 'list' && (
                             <>
-                                <h3 className={styles.cardTitle}>{card.title}</h3>
                                 {card.listItems && (
                                     <ul className={styles.competitorList}>
                                         {card.listItems.map((item, i) => (
@@ -62,14 +66,14 @@ export default function BentoGrid({ items }: BentoGridProps) {
                             <div className={styles.pivotContainer}>
                                 <div className={styles.pivotItem}>
                                     <span className={styles.cardLabel}>{card.flowData.labelFrom || 'Start'}</span>
-                                    <div className={styles.pivotValue}>
+                                    <div className={`${styles.pivotValue} portable-text`}>
                                         <PortableText value={card.flowData.valueFrom} components={CustomPortableTextComponents} />
                                     </div>
                                 </div>
                                 <div className={styles.pivotLine}></div>
                                 <div className={styles.pivotItem}>
                                     <span className={styles.cardLabel}>{card.flowData.labelTo || 'End'}</span>
-                                    <div className={styles.pivotValue}>
+                                    <div className={`${styles.pivotValue} portable-text`}>
                                         <PortableText value={card.flowData.valueTo} components={CustomPortableTextComponents} />
                                     </div>
                                 </div>
@@ -78,10 +82,7 @@ export default function BentoGrid({ items }: BentoGridProps) {
 
                         {/* Fallback for undefined type (treat as text) */}
                         {!card.type && (
-                            <>
-                                <h3 className={styles.cardTitle}>{card.title}</h3>
-                                <p className={styles.cardDesc}>{card.content}</p>
-                            </>
+                            <p className={styles.cardDesc}>{card.content}</p>
                         )}
                     </div>
                 );
