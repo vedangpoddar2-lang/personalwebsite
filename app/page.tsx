@@ -3,6 +3,8 @@ import { client } from '@/sanity/lib/client';
 import PhotoCarousel from '@/components/PhotoCarousel';
 import SpotlightCarousel from '@/components/SpotlightCarousel';
 import Timeline from '@/components/Timeline';
+import MiniExperience from '@/components/MiniExperience';
+import HighlighterTag from '@/components/HighlighterTag';
 import EducationList from '@/components/EducationList';
 import { PortableText } from '@portabletext/react';
 import { CustomPortableTextComponents } from '@/components/PortableTextComponents';
@@ -38,6 +40,9 @@ async function getData() {
         ...,
         asset->
       }
+    },
+    "otherExperience": *[_type == "otherExperience"] | order(order asc) {
+      ...
     }
   }`;
   return client.fetch(query);
@@ -45,7 +50,7 @@ async function getData() {
 
 export default async function Home() {
   const data = await getData();
-  const { profile, work, education, highlights } = data;
+  const { profile, work, education, highlights, otherExperience } = data;
 
   return (
     <main>
@@ -90,6 +95,20 @@ export default async function Home() {
           )}
         </div>
       </section>
+
+      {/* Other Experience Section */}
+      {otherExperience && otherExperience.length > 0 && (
+        <section className="section animate-in delay-2">
+          <div className="container">
+            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <h4 style={{ fontSize: '1.5rem', display: 'inline-block', margin: 0 }}>
+                <HighlighterTag text="Other Contributions" />
+              </h4>
+            </div>
+            <MiniExperience items={otherExperience} />
+          </div>
+        </section>
+      )}
 
       <section className="section animate-in delay-2" style={{ backgroundColor: 'transparent' }}>
         <div className="container">
