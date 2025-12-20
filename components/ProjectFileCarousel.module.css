@@ -10,7 +10,6 @@
     align-items: center;
     gap: 0.5rem;
     width: 220px;
-    /* Reduced width */
 }
 
 .fileLink {
@@ -30,9 +29,7 @@
 .thumbnailWrapper {
     position: relative;
     width: 160px;
-    /* Reduced size */
     height: 96px;
-    /* Aspect ratio */
     background-color: #f0f0f0;
     border-radius: 8px;
     overflow: hidden;
@@ -53,7 +50,6 @@
     align-items: center;
     justify-content: center;
     font-size: 2.5rem;
-    /* Reduced icon size */
     background-color: #f5f5f5;
 }
 
@@ -74,7 +70,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 160px;
-    /* Match thumbnail width */
 }
 
 .counter {
@@ -88,7 +83,6 @@
     border: none;
     color: var(--primary);
     font-size: 1.5rem;
-    /* Reduced button size */
     cursor: pointer;
     padding: 0 0.2rem;
     display: flex;
@@ -103,147 +97,41 @@
 .navBtn:hover {
     opacity: 1;
     transform: scale(1.1);
+}
 
-    .carouselWrapper {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
+.navBtn:active {
+    transform: scale(0.95);
+}
 
+.noFiles {
+    opacity: 0.3;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
     .carouselContainer {
-        position: relative;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        width: 220px;
-        /* Reduced width */
-    }
-
-    .fileLink {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-        color: var(--foreground);
-        width: 100%;
-        transition: opacity 0.2s;
-    }
-
-    .fileLink:hover {
-        opacity: 0.8;
+        width: auto;
+        gap: 0.2rem;
     }
 
     .thumbnailWrapper {
-        position: relative;
-        width: 160px;
-        /* Reduced size */
-        height: 96px;
-        /* Aspect ratio */
-        background-color: #f0f0f0;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin-bottom: 0.5rem;
-        flex-shrink: 0;
-    }
-
-    .thumbnail {
-        object-fit: contain;
-        background-color: #e0e0e0;
-    }
-
-    .fileIcon {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2.5rem;
-        /* Reduced icon size */
-        background-color: #f5f5f5;
+        width: 80px;
+        height: 60px;
+        margin-bottom: 0;
     }
 
     .fileInfo {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.1rem;
-        text-align: center;
-        width: 100%;
-    }
-
-    .fileName {
-        font-size: 0.85rem;
-        font-weight: 500;
-        color: #333;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 160px;
-        /* Match thumbnail width */
-    }
-
-    .counter {
-        font-size: 0.7rem;
-        color: #888;
-        font-variant-numeric: tabular-nums;
+        display: none;
+        /* Hide filename on mobile to save space */
     }
 
     .navBtn {
-        background: none;
-        border: none;
-        color: var(--primary);
-        font-size: 1.5rem;
-        /* Reduced button size */
-        cursor: pointer;
-        padding: 0 0.2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        opacity: 0.5;
-        transition: opacity 0.2s, transform 0.1s;
-        user-select: none;
+        font-size: 1rem;
+        padding: 0;
+        width: 20px;
     }
 
-    .navBtn:hover {
-        opacity: 1;
-        transform: scale(1.1);
+    .fileLink {
+        width: auto;
     }
-
-    .navBtn:active {
-        transform: scale(0.95);
-    }
-
-    .noFiles {
-        opacity: 0.3;
-    }
-
-    /* Mobile Optimization */
-    @media (max-width: 768px) {
-        .carouselContainer {
-            width: auto;
-            gap: 0.2rem;
-        }
-
-        .thumbnailWrapper {
-            width: 80px;
-            height: 60px;
-            margin-bottom: 0;
-        }
-
-        .fileInfo {
-            display: none;
-            /* Hide filename on mobile to save space */
-        }
-
-        .navBtn {
-            font-size: 1rem;
-            padding: 0;
-            width: 20px;
-        }
-
-        .fileLink {
-            width: auto;
-        }
-    }
+}
