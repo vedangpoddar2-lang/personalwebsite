@@ -170,38 +170,118 @@
 
 /* Mobile Optimization */
 @media (max-width: 768px) {
-
-    .table th,
-    .table td {
-        padding: 0.75rem 0.5rem;
-        font-size: 0.85rem;
+    .tableWrapper {
+        overflow-x: visible;
     }
 
+    .table,
+    .table tbody,
+    .table tr,
+    .table td {
+        display: block;
+        width: 100%;
+    }
+
+    .table thead {
+        display: none;
+    }
+
+    .table tr {
+        margin-bottom: 1.5rem;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+    }
+
+    .table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .table tr:last-child td {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .table td:last-child {
+        border-bottom: none;
+    }
+
+    /* 1. Date at top (small) */
+    .dateCell {
+        font-size: 0.85rem;
+        color: #888;
+        padding-bottom: 0.5rem !important;
+        border-bottom: none !important;
+    }
+
+    /* 2. Title & Category */
     .titleCell {
         width: auto;
-        font-size: 1rem;
+        padding-top: 0 !important;
+        padding-bottom: 0.5rem !important;
+        border-bottom: none !important;
     }
 
-    .dateCell {
-        width: auto;
-        font-size: 0.85rem;
+    .titleWrapper {
+        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.8rem;
     }
 
-    .filesCell {
-        width: auto;
+    .titleWrapper a,
+    .titleWrapper span {
+        font-size: 1.2rem;
     }
 
     .categoryBadge {
-        padding: 0.15rem 0.4rem;
-        font-size: 0.65rem;
+        font-size: 0.75rem;
+        padding: 0.2rem 0.6rem;
     }
 
+    /* 3. Description (Visible) */
+    .descCell {
+        max-width: 100%;
+        padding-top: 0.5rem !important;
+        padding-bottom: 1rem !important;
+    }
+
+    .shortDesc {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #555;
+    }
+
+    .moreBtn {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    /* 4. Files */
+    .filesCell {
+        width: auto;
+        background: #fafafa;
+        padding: 1rem !important;
+    }
+
+    /* Filter Buttons */
     .filterContainer {
         gap: 0.5rem;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 0.5rem;
+        -webkit-overflow-scrolling: touch;
     }
 
     .filterBtn {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
     }
 }
