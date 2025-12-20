@@ -1,0 +1,47 @@
+/* Option Tab 6: Zig-Zag Scribble Design */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    /* New Style: The Zig-Zag Scribble */
+    /* Matches the user's uploaded image: Text over a yellow zig-zag highlight */
+
+    /* The Scribble: An SVG background image */
+    /* Encoded SVG: <svg width='20' height='15' viewBox='0 0 20 15' ... path d='M0 10 L5 2 L10 10 L15 2 L20 10' ... /> */
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='15' viewBox='0 0 20 15' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 L5 2 L10 10 L15 2 L20 10' stroke='%23eab308' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round' opacity='0.6'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: center bottom 2px;
+    /* Aligned behind text */
+    background-size: auto 100%;
+    /* Scales with text height */
+
+    background-color: transparent;
+    border: none;
+    padding: 0 5px;
+    /* Padding for the scribble to extend */
+
+    /* Typography */
+    font-family: var(--font-serif);
+    /* Serif for Gravitas */
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #003366;
+    /* Deep Navy */
+    text-transform: none;
+    letter-spacing: 0.01em;
+
+    display: inline-flex;
+    align-items: center;
+    cursor: default;
+
+    /* Static: No animations */
+}
+
+.tag:hover {
+    /* No change on hover */
+    color: #003366;
+}

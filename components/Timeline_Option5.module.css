@@ -1,0 +1,52 @@
+/* Option Tab 5: Diamond Bullet Design */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    /* New Style: The Diamond Bullet */
+    /* Distinct from shortDesc: Italic, No Background, Bullet */
+    background: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+
+    /* Typography */
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    font-style: italic;
+    /* Key differentiator */
+    color: #003366;
+    /* Deep Navy */
+    text-transform: none;
+    letter-spacing: 0.01em;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* Space between bullet and text */
+    cursor: default;
+}
+
+.tag::before {
+    /* The Bullet */
+    content: '◆';
+    /* Diamond shape */
+    color: #d4af37;
+    /* Gold */
+    font-style: normal;
+    /* Bullet stays upright */
+    font-size: 0.7em;
+    /* Subtle size */
+    transform: translateY(1px);
+    /* Optical alignment */
+}
+
+.tag:hover {
+    /* Static - No animation as requested */
+    color: #003366;
+}

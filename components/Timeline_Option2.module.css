@@ -1,0 +1,63 @@
+/* Option Tab 2: Tech Slash Design */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    /* New Style: The Tech Slash */
+    /* NO BOXES. Just typography and a stylistic accent. */
+    background: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+
+    /* Typography */
+    font-family: var(--font-serif);
+    /* Serif for Gravitas (User liked Option 1) */
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #003366;
+    /* Deep Navy */
+    text-transform: none;
+    /* No Caps */
+    letter-spacing: 0.01em;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.tag::before {
+    /* The Accent: A Gold Slash */
+    content: '//';
+    color: #d4af37;
+    /* Gold */
+    font-family: var(--font-sans);
+    /* Contrast font for the symbol */
+    font-weight: 300;
+    letter-spacing: -2px;
+    /* Tight slashes */
+    font-size: 1.2rem;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    transform: translateX(5px);
+    /* Subtle slide */
+    color: #002244;
+}
+
+.tag:hover::before {
+    color: #003366;
+    /* Slash turns Navy on hover */
+    opacity: 1;
+    letter-spacing: 0px;
+    /* Slashes expand slightly */
+}

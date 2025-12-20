@@ -1,0 +1,45 @@
+/* Option Tab 1: Premium Stat Design */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    /* New Style: Premium Stat */
+    /* Minimalist, Editorial, with Gravitas */
+    background: none;
+    border: none;
+    border-bottom: 2px solid #d4af37;
+    /* Elegant Gold Underline */
+    padding: 0 0 2px 0;
+    border-radius: 0;
+
+    /* Typography */
+    font-family: var(--font-serif);
+    /* Serif for Gravitas */
+    font-size: 1.05rem;
+    /* Slightly larger */
+    font-weight: 700;
+    /* Bold to Quantify/Stand Out */
+    color: #003366;
+    /* Deep Navy */
+    text-transform: none;
+    /* No Caps */
+    letter-spacing: 0.01em;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.tag:hover {
+    border-bottom-color: #003366;
+    /* Switches to Navy on hover */
+    color: #002244;
+    transform: translateY(-1px);
+}

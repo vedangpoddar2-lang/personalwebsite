@@ -32,10 +32,24 @@ export const workExperience = defineType({
             type: 'image',
         }),
         defineField({
+            name: 'logoWidth',
+            title: 'Logo Width (px)',
+            type: 'number',
+            description: 'Width of the logo in pixels. Default is 100.',
+            initialValue: 100,
+        }),
+        defineField({
             name: 'shortDescription',
             title: 'Short Description (5 words)',
             type: 'string',
             description: 'A very brief summary for the timeline view.',
+        }),
+        defineField({
+            name: 'tags',
+            title: 'Key Highlights',
+            type: 'array',
+            of: [{ type: 'string' }],
+            description: 'Short highlights (e.g., "60+ Models", "Team Lead"). Shown above details.',
         }),
         defineField({
             name: 'details',

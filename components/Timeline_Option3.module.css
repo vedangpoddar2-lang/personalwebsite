@@ -1,0 +1,75 @@
+/* Option Tab 3: Editorial Bracket Design */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    /* New Style: The Editorial Bracket */
+    /* NO BOXES. Framing with typography. */
+    background: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+
+    /* Typography */
+    font-family: var(--font-serif);
+    /* Serif for Gravitas */
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #003366;
+    /* Deep Navy */
+    text-transform: none;
+    letter-spacing: 0.02em;
+
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.tag::before,
+.tag::after {
+    /* The Brackets */
+    color: #d4af37;
+    /* Gold */
+    font-family: var(--font-sans);
+    /* Contrast font for brackets */
+    font-weight: 300;
+    font-size: 1.3rem;
+    /* Slightly larger than text */
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.tag::before {
+    content: '[';
+    margin-right: 0.3rem;
+    transform: translateX(2px);
+}
+
+.tag::after {
+    content: ']';
+    margin-left: 0.3rem;
+    transform: translateX(-2px);
+}
+
+.tag:hover {
+    color: #002244;
+}
+
+.tag:hover::before {
+    transform: translateX(0);
+    /* Slide Out/In */
+    opacity: 1;
+    color: #003366;
+    /* Brackets turn Navy? Or stay Gold? Let's keep Gold for contrast */
+}
+
+.tag:hover::after {
+    transform: translateX(0);
+    opacity: 1;
+}

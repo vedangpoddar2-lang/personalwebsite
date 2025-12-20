@@ -1,0 +1,44 @@
+/* Option Tab 4: Marker Highlight Design */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    /* New Style: The Marker Highlight */
+    /* A classic editorial "highlight" effect. */
+    /* Static: No hover animation. */
+
+    /* The Highlight: Bottom 40% Gold */
+    background: linear-gradient(to top, rgba(212, 175, 55, 0.4) 40%, transparent 40%);
+
+    border: none;
+    padding: 0 2px;
+    /* Slight horizontal padding so highlight extends */
+    border-radius: 0;
+
+    /* Typography */
+    font-family: var(--font-serif);
+    /* Keeping Serif for gravitas */
+    font-size: 0.9rem;
+    /* Reduced size as requested */
+    font-weight: 700;
+    color: #003366;
+    /* Deep Navy */
+    text-transform: none;
+    letter-spacing: 0.01em;
+
+    display: inline-flex;
+    align-items: center;
+    cursor: default;
+
+    /* No transitions/animations */
+}
+
+.tag:hover {
+    /* No change on hover */
+    color: #003366;
+    background: linear-gradient(to top, rgba(212, 175, 55, 0.4) 40%, transparent 40%);
+}

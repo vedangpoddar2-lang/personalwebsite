@@ -14,7 +14,10 @@ export const revalidate = 60;
 async function getData() {
   const query = `{
     "profile": *[_type == "profile"][0],
-    "work": *[_type == "workExperience"] | order(startDate desc),
+    "work": *[_type == "workExperience"] | order(startDate desc) {
+      ...,
+      tags
+    },
     "education": *[_type == "education"] | order(startDate desc) {
       ...,
       bentoCards[]{
