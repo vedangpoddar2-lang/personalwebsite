@@ -35,8 +35,8 @@
 /* Title is now Bold Text Style (Serif, Highlighted) */
 .cardTitle {
     font-family: var(--font-serif);
-    font-weight: 800;
-    font-size: 1.5rem;
+    font-weight: 600;
+    font-size: 1.2rem;
     color: var(--primary);
     background: linear-gradient(120deg, rgba(0, 51, 102, 0.1) 0%, rgba(0, 51, 102, 0.1) 100%);
     background-repeat: no-repeat;
