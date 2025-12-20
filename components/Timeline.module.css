@@ -95,6 +95,8 @@
     font-weight: 700;
     color: var(--foreground);
     margin-bottom: 0.2rem;
+    display: block;
+    border-bottom: none;
 }
 
 .company {
@@ -105,6 +107,8 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    border-bottom: none !important;
+    padding-bottom: 0;
 }
 
 .inlineDate {
