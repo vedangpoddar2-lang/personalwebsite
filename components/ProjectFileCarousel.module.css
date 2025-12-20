@@ -110,28 +110,53 @@
 /* Mobile Optimization */
 @media (max-width: 768px) {
     .carouselContainer {
-        width: auto;
-        gap: 0.2rem;
+        width: 80px;
+        /* Fixed width for mobile */
+        height: 60px;
+        gap: 0;
+        /* Remove gap to fit buttons overlay */
     }
 
     .thumbnailWrapper {
-        width: 80px;
-        height: 60px;
+        width: 100%;
+        height: 100%;
         margin-bottom: 0;
+        border-radius: 6px;
     }
 
     .fileInfo {
         display: none;
-        /* Hide filename on mobile to save space */
     }
 
     .navBtn {
-        font-size: 1rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
         padding: 0;
         width: 20px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        z-index: 10;
+        opacity: 0.8;
+    }
+
+    .navBtn:hover {
+        background: #fff;
+        opacity: 1;
+    }
+
+    .carouselContainer>button:first-of-type {
+        left: -10px;
+    }
+
+    .carouselContainer>button:last-of-type {
+        right: -10px;
     }
 
     .fileLink {
-        width: auto;
+        width: 100%;
+        height: 100%;
     }
 }

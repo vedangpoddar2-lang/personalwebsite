@@ -248,8 +248,8 @@
     }
 
     .categoryBadge {
-        font-size: 0.65rem;
-        padding: 0.15rem 0.5rem;
+        font-size: 0.6rem;
+        padding: 0.1rem 0.4rem;
         align-self: flex-start;
         background-color: #f0f7ff;
         color: var(--primary);
