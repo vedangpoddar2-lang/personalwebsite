@@ -56,7 +56,6 @@ export default function Navbar({ resumeUrl }: NavbarProps) {
                             <button
                                 onClick={() => setIsContactOpen(true)}
                                 className={styles.link}
-                                style={{ background: 'none', border: 'none', cursor: 'pointer' }}
                             >
                                 Contact
                             </button>

@@ -2,6 +2,8 @@ import { PortableText } from '@portabletext/react';
 import { CustomPortableTextComponents } from './PortableTextComponents';
 import styles from './BentoGrid.module.css';
 
+import HighlighterTag from './HighlighterTag';
+
 interface BentoCardData {
     _key: string;
     title: string;
@@ -39,7 +41,7 @@ export default function BentoGrid({ items }: BentoGridProps) {
                         {/* Subtitle is the simple text below title */}
                         {card.subtitle && (
                             <div className={styles.cardSubtitle}>
-                                {card.subtitle}
+                                <HighlighterTag text={card.subtitle} />
                             </div>
                         )}
 
