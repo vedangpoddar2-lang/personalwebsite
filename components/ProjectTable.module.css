@@ -156,187 +156,129 @@
     font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.2s;
+    /* Title takes remaining space, Files takes fixed 90px */
+    gap: 0.5rem 0.5rem;
+    /* Row gap 0.5rem, Col gap 0.5rem */
+    margin-bottom: 1rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    align-items: start;
+    /* Align to top */
 }
 
-.filterBtn:hover {
-    background: rgba(0, 0, 0, 0.05);
+/* Reset default td styles for grid items */
+.table td {
+    padding: 0 !important;
+    border: none !important;
+    display: block;
+    text-align: left;
 }
 
-.activeFilter {
-    background: var(--foreground);
-    color: var(--background);
-    border-color: var(--foreground);
+/* 1. Date (Top) */
+.dateCell {
+    grid-area: date;
+    font-size: 0.75rem;
+    color: #999;
+    margin-bottom: 0.2rem;
+    width: auto;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-/* Mobile Optimization */
-@media (max-width: 768px) {
-    .tableWrapper {
-        overflow-x: visible;
-    }
+/* 2. Title & Category (Left) */
+.titleCell {
+    grid-area: title;
+    width: auto;
+    align-self: start;
+    /* Align to top of the row */
+}
 
-    .table,
-    .table tbody {
-        display: block;
-        width: 100%;
-    }
+.titleWrapper {
+    align-items: flex-start;
+    flex-direction: column;
+    /* Stack Title and Badge */
+    gap: 0.3rem;
+}
 
-    .table thead {
-        display: none;
-    }
+.titleWrapper a,
+.titleWrapper span {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--primary);
+}
 
-    /* Main Project Card (Grid Layout) */
-    .table tr:not(.detailsRow) {
-        display: grid;
-        grid-template-areas:
-            "date date"
-            "title files"
-            "desc desc";
-        grid-template-columns: 1fr 90px;
-        /* Title takes remaining space, Files takes fixed 90px */
-        gap: 0.5rem 0.5rem;
-        /* Row gap 0.5rem, Col gap 0.5rem */
-        margin-bottom: 1rem;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        padding: 1rem;
-        align-items: start;
-        /* Align to top */
-    }
+.categoryBadge {
+    font-size: 0.5rem;
+    padding: 0.1rem 0.3rem;
+    align-self: flex-start;
+    background-color: #f0f7ff;
+    color: var(--primary);
+    border: 1px solid rgba(0, 51, 102, 0.1);
+}
 
-    /* Reset default td styles for grid items */
-    .table td {
-        padding: 0 !important;
-        border: none !important;
-        display: block;
-        text-align: left;
-    }
+/* 3. Files/Thumbnail (Right) */
+.filesCell {
+    grid-area: files;
+    width: auto;
+    min-width: 80px;
+    background: transparent;
+    display: flex;
+    justify-content: flex-end;
+    align-self: start;
+    /* Align to top */
+}
 
-    /* 1. Date (Top) */
-    .dateCell {
-        grid-area: date;
-        font-size: 0.75rem;
-        color: #999;
-        margin-bottom: 0.2rem;
-        width: auto;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
+/* 4. Short Description (Bottom, Full Width) */
+.descCell {
+    grid-area: desc;
+    max-width: 100%;
+    font-size: 0.75rem;
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 700;
+    align-self: flex-start;
+    padding: 0.2rem 0;
+}
 
-    /* 2. Title & Category (Left) */
-    .titleCell {
-        grid-area: title;
-        width: auto;
-        align-self: start;
-        /* Align to top of the row */
-    }
+/* Expanded Details Row */
+.detailsRow {
+    display: block;
+    margin-top: -1rem;
+    margin-bottom: 1.5rem;
+    background: #fafafa;
+    border-radius: 0 0 12px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: none;
+    padding: 1rem;
+}
 
-    .titleWrapper {
-        align-items: flex-start;
-        flex-direction: column;
-        /* Stack Title and Badge */
-        gap: 0.3rem;
-    }
+.detailsRow td {
+    padding: 0 !important;
+    background: transparent !important;
+}
 
-    .titleWrapper a,
-    .titleWrapper span {
-        font-size: 1.1rem;
-        font-weight: 700;
-        line-height: 1.2;
-        color: var(--primary);
-    }
+.detailsContent {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #333;
+}
 
-    .categoryBadge {
-        font-size: 0.5rem;
-        padding: 0.1rem 0.3rem;
-        align-self: flex-start;
-        background-color: #f0f7ff;
-        color: var(--primary);
-        border: 1px solid rgba(0, 51, 102, 0.1);
-    }
+/* Filter Buttons */
+.filterContainer {
+    gap: 0.5rem;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+}
 
-    /* 3. Files/Thumbnail (Right) */
-    .filesCell {
-        grid-area: files;
-        width: auto;
-        min-width: 80px;
-        background: transparent;
-        display: flex;
-        justify-content: flex-end;
-        align-self: start;
-        /* Align to top */
-    }
-
-    /* 4. Short Description (Bottom, Full Width) */
-    .descCell {
-        grid-area: desc;
-        max-width: 100%;
-        margin-top: 0.8rem;
-        border-top: 1px solid rgba(0, 0, 0, 0.03) !important;
-        padding-top: 0.8rem !important;
-    }
-
-    .shortDesc {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        color: #444;
-        white-space: normal;
-        word-wrap: break-word;
-        word-break: break-word;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .moreBtn {
-        position: relative;
-        bottom: auto;
-        right: auto;
-        margin-top: 0;
-        font-size: 0.75rem;
-        display: inline-block;
-        color: var(--primary);
-        font-weight: 700;
-        align-self: flex-start;
-        padding: 0.2rem 0;
-    }
-
-    /* Expanded Details Row */
-    .detailsRow {
-        display: block;
-        margin-top: -1rem;
-        margin-bottom: 1.5rem;
-        background: #fafafa;
-        border-radius: 0 0 12px 12px;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        border-top: none;
-        padding: 1rem;
-    }
-
-    .detailsRow td {
-        padding: 0 !important;
-        background: transparent !important;
-    }
-
-    .detailsContent {
-        font-size: 0.9rem;
-        line-height: 1.6;
-        color: #333;
-    }
-
-    /* Filter Buttons */
-    .filterContainer {
-        gap: 0.5rem;
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding-bottom: 0.5rem;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .filterBtn {
-        padding: 0.4rem 1rem;
-        font-size: 0.85rem;
-        white-space: nowrap;
-    }
+.filterBtn {
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
 }
