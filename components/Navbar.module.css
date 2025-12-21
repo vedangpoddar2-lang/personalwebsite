@@ -1,186 +1,179 @@
 .nav {
-    padding: 1.5rem 0;
-    position: sticky;
+    position: absolute;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 100;
     background: transparent;
-    backdrop-filter: blur(10px);
+    height: 80px;
+    display: flex;
+    align-items: center;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
-/* Desktop Links */
 .links {
     display: flex;
-    gap: 4rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
     align-items: center;
-    /* Align items vertically */
+    /* Ensure vertical alignment */
+    list-style: none;
+    gap: 2.5rem;
+    margin: 0;
+    padding: 0;
+    grid-column: 2;
+}
+
+.resumeContainer {
+    grid-column: 3;
+    justify-self: end;
 }
 
 .link {
-    color: var(--foreground);
     text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 600;
-    opacity: 0.5;
-    transition: all 0.3s ease;
-    position: relative;
-    padding: 0.5rem 0;
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: color 0.2s;
+    font-size: 1.5rem;
+
+    /* Button Reset Styles */
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    cursor: pointer;
+    line-height: inherit;
 }
 
-.link:hover {
-    opacity: 1;
+.link:hover,
+.link.active {
+    color: var(--primary);
 }
 
-.active {
-    opacity: 1;
-}
-
-/* Animated Underline */
-.link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: var(--foreground);
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.link:hover::after,
-.active::after {
-    transform: scaleX(1);
-}
-
-/* Resume Button */
 .resumeBtn {
-    display: inline-block;
-    padding: 0.4rem 1rem;
-    background-color: transparent;
-    border: 1px solid var(--foreground);
-    border-radius: 20px;
-    color: var(--foreground);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.8rem;
+    background: transparent;
+    color: #666;
+    border: 1px solid #ccc;
     text-decoration: none;
-    font-size: 0.8rem;
-    /* Smaller than links */
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: all 0.3s ease;
-    margin-left: 1rem;
-    opacity: 0.8;
+    border-radius: 100px;
+    font-weight: 400;
+    font-size: 0.9rem;
+    transition: all 0.2s;
 }
 
 .resumeBtn:hover {
-    background-color: var(--foreground);
-    color: var(--background);
-    transform: translateY(-2px);
-    opacity: 1;
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-1px);
 }
 
-/* Hamburger Menu (Hidden on Desktop) */
+.downloadIcon {
+    font-size: 0.9rem;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 102;
     padding: 0;
+    z-index: 101;
+    grid-column: 1;
 }
 
 .bar {
-    width: 100%;
-    height: 3px;
-    background-color: var(--foreground);
-    border-radius: 3px;
-    transition: all 0.3s ease;
+    width: 2rem;
+    height: 0.25rem;
+    background: var(--text-primary);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
 }
 
-/* Mobile Menu (Hidden on Desktop) */
+/* Mobile Styles */
 .mobileMenu {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    background: var(--background);
+    background: rgba(255, 255, 255, 0.98);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 101;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 99;
+}
+
+.menuOpen {
+    transform: translateX(0);
 }
 
 .mobileLinks {
     list-style: none;
     padding: 0;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .mobileLink {
-    display: block;
     font-size: 2rem;
-    font-weight: 700;
-    color: var(--foreground);
     text-decoration: none;
-    margin: 2rem 0;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
+    color: var(--text-primary);
+    font-weight: 700;
+    transition: color 0.2s;
 }
 
-.mobileLink:hover,
-.mobileLink.active {
-    opacity: 1;
+.mobileLink:hover {
+    color: var(--primary);
 }
 
-/* Mobile Styles */
+.open .bar:first-child {
+    transform: rotate(45deg);
+}
+
+.open .bar:nth-child(2) {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.open .bar:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
 @media (max-width: 768px) {
-    .links {
-        display: none;
-    }
-
     .hamburger {
         display: flex;
     }
 
+    .links {
+        display: none;
+    }
+
+    .resumeContainer {
+        display: none;
+        /* Hide desktop CV button on mobile */
+    }
+
     .container {
-        justify-content: flex-end;
-        padding-right: 1.5rem;
-    }
-
-    .menuOpen {
-        opacity: 1;
-        pointer-events: all;
-    }
-
-    .hamburger.open .bar:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-
-    .hamburger.open .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.open .bar:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
+        display: flex;
+        justify-content: space-between;
     }
 }

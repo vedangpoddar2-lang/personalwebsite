@@ -15,7 +15,10 @@ export const revalidate = 60;
 
 async function getData() {
   const query = `{
-    "profile": *[_type == "profile"][0],
+    "profile": *[_type == "profile"][0] {
+      ...,
+      nameSize
+    },
     "work": *[_type == "workExperience"] | order(startDate desc) {
       ...,
       tags
@@ -64,9 +67,12 @@ export default async function Home() {
             </div>
           )}
           <div className={styles.intro}>
-            <h1 className={styles.heroName}>
+            <h1 className={styles.heroName} style={{ fontSize: profile?.nameSize || '5rem' }}>
               {profile?.name || 'VEDANG_PODDAR'}
             </h1>
+            <div style={{ marginBottom: '2rem' }}>
+              <HighlighterTag text={profile?.headline || "Product Engineer"} />
+            </div>
             {profile?.shortDescription && (
               <div className="portable-text">
                 <PortableText value={profile.shortDescription} components={CustomPortableTextComponents} />
@@ -80,6 +86,7 @@ export default async function Home() {
       {highlights && highlights.length > 0 && (
         <section className="section animate-in">
           <div className="container">
+            <h2 className={styles.sectionTitle}>Highlights</h2>
             <SpotlightCarousel items={highlights} />
           </div>
         </section>

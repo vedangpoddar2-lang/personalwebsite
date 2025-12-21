@@ -14,6 +14,8 @@ const seededRandom = (seed: number) => {
 };
 
 export default function HighlighterTag({ text }: HighlighterTagProps) {
+    const [animationKey, setAnimationKey] = React.useState(0);
+
     // Generate deterministic random values based on text
     const { pathD, filterId } = useMemo(() => {
         let seed = text.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
@@ -29,14 +31,14 @@ export default function HighlighterTag({ text }: HighlighterTagProps) {
         const charCount = text.length;
         const steps = Math.max(16, Math.ceil(charCount * 1.2));
 
-        // Start at x=8
-        let d = `M 8 ${45 + getRandom() * 5}`;
+        // Start at x=4 (Tightened further)
+        let d = `M 4 ${45 + getRandom() * 5}`;
 
-        const totalWidth = 84;
+        const totalWidth = 92; // Reduced width to 92 for tighter fit
         const stepWidth = totalWidth / steps;
 
         for (let i = 1; i <= steps; i++) {
-            const x = 8 + (i * stepWidth);
+            const x = 4 + (i * stepWidth);
             // Reduced Vertical Range (12 to 48)
             const isTop = i % 2 !== 0;
             const y = isTop
@@ -53,7 +55,10 @@ export default function HighlighterTag({ text }: HighlighterTagProps) {
     }, [text]);
 
     return (
-        <div className={styles.container}>
+        <div
+            className={styles.container}
+            onMouseEnter={() => setAnimationKey(prev => prev + 1)}
+        >
             <span className={styles.text}>{text}</span>
             <svg
                 className={styles.svgContainer}
@@ -81,17 +86,18 @@ export default function HighlighterTag({ text }: HighlighterTagProps) {
                 <g filter={`url(#${filterId})`}>
                     {/* 
                         Rough Zig-Zag
-                        - Stroke: 26 (Slightly thicker to handle erosion from roughness)
-                        - Opacity: 0.75
+                        - Stroke: 20 (Thinner to reduce stretching effect)
+                        - Opacity: 0.7 (Increased opacity)
                     */}
                     <path
+                        key={animationKey}
                         d={pathD}
                         stroke="#eab308"
-                        strokeWidth="26"
+                        strokeWidth="20"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         fill="none"
-                        opacity="0.75"
+                        opacity="0.7"
                         className={styles.path}
                     />
                 </g>

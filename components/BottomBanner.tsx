@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import HighlighterTag from './HighlighterTag';
 import styles from './BottomBanner.module.css';
 
 interface BottomBannerProps {
@@ -13,9 +14,11 @@ export default function BottomBanner({ text }: BottomBannerProps) {
     if (!text || pathname?.startsWith('/studio')) return null;
 
     return (
-        <footer className={styles.footer}>
+        <footer className={styles.banner}>
             <div className="container">
-                <p className={styles.text}>{text}</p>
+                <div className={styles.tagWrapper}>
+                    <HighlighterTag text={text} />
+                </div>
             </div>
         </footer>
     );

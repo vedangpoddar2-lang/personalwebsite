@@ -11,6 +11,27 @@ export const profile = defineType({
             type: 'string',
         }),
         defineField({
+            name: 'headline',
+            title: 'Headline',
+            type: 'string',
+            description: 'Short text below name (e.g. Product Engineer)',
+        }),
+        defineField({
+            name: 'nameSize',
+            title: 'Name Font Size',
+            type: 'string',
+            options: {
+                list: [
+                    { title: 'Small (3rem)', value: '3rem' },
+                    { title: 'Medium (4rem)', value: '4rem' },
+                    { title: 'Large (5rem)', value: '5rem' },
+                    { title: 'Extra Large (6rem)', value: '6rem' },
+                ],
+            },
+            initialValue: '5rem',
+            description: 'Adjust the font size of your name.',
+        }),
+        defineField({
             name: 'shortDescription',
             title: 'Short Description',
             type: 'array',

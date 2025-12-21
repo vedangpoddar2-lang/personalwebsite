@@ -41,6 +41,11 @@ body {
   scroll-behavior: smooth;
 }
 
+main {
+  padding-top: 120px;
+  /* Global padding to clear fixed navbar */
+}
+
 a {
   color: inherit;
   text-decoration: none;

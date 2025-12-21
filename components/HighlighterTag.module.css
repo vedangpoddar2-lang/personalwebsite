@@ -5,6 +5,8 @@
     justify-content: center;
     padding: 0 0.3rem;
     height: 2.2em;
+    margin: 0 0.5rem;
+    /* Added margin to prevent overlap */
 }
 
 .text {
@@ -32,11 +34,11 @@
 
 /* Marker Animation */
 .path {
-    stroke-dasharray: 2000;
-    /* Increased from 200 to cover long zig-zag paths */
-    stroke-dashoffset: 2000;
-    animation: draw 0.8s ease-out forwards;
-    /* Slightly slower for longer paths */
+    stroke-dasharray: 10000;
+    /* Increased to ensure coverage for very long text */
+    stroke-dashoffset: 10000;
+    animation: draw 3s ease-out forwards;
+    /* Slower animation */
 }
 
 @keyframes draw {

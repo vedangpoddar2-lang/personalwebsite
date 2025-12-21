@@ -3,8 +3,6 @@
   /* Occupy full screen height */
   display: flex;
   align-items: center;
-  padding-top: 2rem;
-  /* Reduced top spacing */
   padding-bottom: 0;
 }
 
@@ -70,8 +68,6 @@
   left: 50%;
   transform: translateX(-50%);
 }
-
-
 
 .emptyState {
   text-align: center;
