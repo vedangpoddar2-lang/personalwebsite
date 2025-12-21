@@ -2,12 +2,10 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { PortableText } from '@portabletext/react';
 import { urlFor } from '@/sanity/lib/image';
 import styles from './EducationList.module.css';
 import MediaGallery from './MediaGallery';
 import BentoGrid from './BentoGrid';
-import { CustomPortableTextComponents } from './PortableTextComponents';
 
 interface EducationItem {
     _id: string;
@@ -17,7 +15,7 @@ interface EducationItem {
     endDate: string;
     logo?: any;
     logoSize?: number;
-    description: any;
+    shortDescription?: string;
     media?: any[];
     bentoCards?: any[];
 }
@@ -27,86 +25,98 @@ interface EducationListProps {
 }
 
 export default function EducationList({ items }: EducationListProps) {
-    const [activeId, setActiveId] = useState<string | null>(null);
+    const [expandedIds, setExpandedIds] = useState<string[]>([]);
+
+    const toggleExpand = (id: string) => {
+        setExpandedIds(prev =>
+            prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
+        );
+    };
+
+    const toggleAll = () => {
+        if (expandedIds.length === items.length) {
+            setExpandedIds([]); // Collapse all
+        } else {
+            setExpandedIds(items.map(item => item._id)); // Expand all
+        }
+    };
+
+    const isAllExpanded = items.length > 0 && expandedIds.length === items.length;
 
     if (!items || items.length === 0) return null;
 
-    const activeItem = items.find(item => item._id === activeId);
-
-    const handleTabClick = (id: string) => {
-        setActiveId(activeId === id ? null : id);
-    };
-
     return (
         <div className={styles.container}>
-            {/* Card Tabs */}
-            <div className={styles.tabsGrid}>
-                {items.map((item) => (
-                    <button
-                        key={item._id}
-                        className={`${styles.tabCard} ${activeId === item._id ? styles.activeTabCard : ''}`}
-                        onClick={() => handleTabClick(item._id)}
-                    >
-                        <div className={styles.tabContent}>
-                            {/* Logo at Top */}
-                            <div className={styles.tabLogoWrapper} style={{ width: item.logoSize || 100, height: item.logoSize || 100 }}>
-                                {item.logo ? (
-                                    <Image
-                                        src={urlFor(item.logo).width(300).url()}
-                                        alt={item.institute}
-                                        width={item.logoSize || 100}
-                                        height={item.logoSize || 100}
-                                        className={styles.tabLogo}
-                                    />
-                                ) : (
-                                    <div className={styles.placeholderLogo} />
-                                )}
-                            </div>
-
-                            {/* Details Below */}
-                            <div className={styles.tabDetails}>
-                                <h3 className={styles.tabInstitute}>{item.institute}</h3>
-                                <p className={styles.tabDegree}>{item.degree}</p>
-                                <span className={styles.tabDate}>
-                                    {new Date(item.startDate).getFullYear()} - {new Date(item.endDate).getFullYear()}
-                                </span>
-                            </div>
-                        </div>
-
-                        {/* Plus Sign in Corner */}
-                        <div className={styles.plusIcon}>
-                            {activeId === item._id ? '−' : '+'}
-                        </div>
-                    </button>
-                ))}
+            <div className={styles.controls}>
+                <button onClick={toggleAll} className={styles.toggleAllBtn}>
+                    {isAllExpanded ? 'Collapse All' : 'Expand All'}
+                </button>
             </div>
 
-            {/* Expanded Content Area */}
-            {activeItem && (
-                <div className={styles.expandedContent}>
-                    {/* Use BentoGrid if cards exist */}
-                    {activeItem.bentoCards && activeItem.bentoCards.length > 0 && (
-                        <BentoGrid items={activeItem.bentoCards} />
-                    )}
+            {items.map((item) => (
+                <div key={item._id} className={styles.item}>
+                    {/* Header Row: Logo + Info + Expand Icon */}
+                    <div className={styles.headerRow} onClick={() => toggleExpand(item._id)}>
+                        <div
+                            className={styles.logoWrapper}
+                            style={{
+                                width: item.logoSize ? `${item.logoSize}px` : '100px',
+                                minWidth: item.logoSize ? `${item.logoSize}px` : '100px',
+                            }}
+                        >
+                            {item.logo ? (
+                                <Image
+                                    src={urlFor(item.logo).url()}
+                                    alt={item.institute}
+                                    width={0}
+                                    height={0}
+                                    sizes="100vw"
+                                    style={{ width: '100%', height: 'auto' }}
+                                    className={styles.logo}
+                                />
+                            ) : (
+                                <div className={styles.placeholderLogo} />
+                            )}
+                        </div>
 
-                    {/* Optional: Keep original description as fallback or additional info */}
-                    {/* 
-                    <div className={styles.description}>
-                        <PortableText value={activeItem.description} />
+                        <div className={styles.info}>
+                            <h3 className={styles.institute}>{item.institute}</h3>
+                            <h4 className={styles.degree}>
+                                {item.degree}
+                                <span className={styles.inlineDate}>
+                                    {new Date(item.startDate).getFullYear()} - {new Date(item.endDate).getFullYear()}
+                                </span>
+                            </h4>
+                            {item.shortDescription && (
+                                <p className={styles.shortDesc}>{item.shortDescription}</p>
+                            )}
+                        </div>
+
+                        <div className={styles.expandIcon}>
+                            {expandedIds.includes(item._id) ? '−' : '+'}
+                        </div>
                     </div>
-                    */}
 
-                    {activeItem.media && activeItem.media.length > 0 && (
-                        <MediaGallery items={activeItem.media} />
+                    {/* Expanded Content */}
+                    {expandedIds.includes(item._id) && (
+                        <div className={styles.expandedContent}>
+                            {item.bentoCards && item.bentoCards.length > 0 && (
+                                <BentoGrid items={item.bentoCards} />
+                            )}
+
+                            {item.media && item.media.length > 0 && (
+                                <MediaGallery items={item.media} />
+                            )}
+
+                            <div className={styles.projectLinkWrapper}>
+                                <a href="/projects" className={styles.projectLink}>
+                                    View Related Projects →
+                                </a>
+                            </div>
+                        </div>
                     )}
-
-                    <div className={styles.projectLinkWrapper}>
-                        <a href="/projects" className={styles.projectLink}>
-                            View Related Projects →
-                        </a>
-                    </div>
                 </div>
-            )}
+            ))}
         </div>
     );
 }

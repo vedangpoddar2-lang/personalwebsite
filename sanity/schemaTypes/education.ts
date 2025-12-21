@@ -41,6 +41,13 @@ export const education = defineType({
             initialValue: 100,
         }),
         defineField({
+            name: 'shortDescription',
+            title: 'Short Description',
+            type: 'text',
+            rows: 2,
+            description: 'Brief summary of the education (displayed below the degree).',
+        }),
+        defineField({
             name: 'media',
             title: 'Media / Documents',
             type: 'array',
