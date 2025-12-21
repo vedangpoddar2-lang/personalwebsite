@@ -8,6 +8,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    /* Allow wrapping */
+    max-width: 100%;
+    padding: 0 1rem;
+    /* Add padding for mobile */
 }
 
 .banner p {

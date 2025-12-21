@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Merriweather, Patrick_Hand } from "next/font/google";
 import "./globals.css";
 import { client } from "@/sanity/lib/client";
@@ -24,6 +24,13 @@ const patrickHand = Patrick_Hand({
   variable: "--font-cursive",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export const metadata: Metadata = {
   title: "Personal Website",

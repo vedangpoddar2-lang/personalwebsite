@@ -174,6 +174,7 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
+        position: relative !important;
     }
 
     .logoWrapper {
@@ -184,5 +185,18 @@
 
     .expandedContent {
         padding: 1.5rem;
+    }
+
+    .expandIcon {
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    .info {
+        width: 100%;
+        padding-right: 2rem;
+        /* Prevent text from overlapping with the icon */
     }
 }

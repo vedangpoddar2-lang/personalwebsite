@@ -97,7 +97,6 @@ export default function Navbar({ resumeUrl }: NavbarProps) {
                                         setIsMenuOpen(false);
                                     }}
                                     className={styles.mobileLink}
-                                    style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 'inherit', color: 'inherit' }}
                                 >
                                     Contact
                                 </button>

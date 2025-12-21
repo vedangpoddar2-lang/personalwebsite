@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import { PortableText } from '@portabletext/react';
 import styles from './ProjectTable.module.css';
 
@@ -72,8 +72,8 @@ export default function ProjectTable({ items }: ProjectTableProps) {
                     </thead>
                     <tbody>
                         {filteredItems.map((item) => (
-                            <>
-                                <tr key={item._id} className={expandedId === item._id ? styles.expandedRow : ''}>
+                            <Fragment key={item._id}>
+                                <tr className={expandedId === item._id ? styles.expandedRow : ''}>
                                     <td className={styles.dateCell}>
                                         {item.date ? new Date(item.date).getFullYear() : '-'}
                                     </td>
@@ -124,7 +124,7 @@ export default function ProjectTable({ items }: ProjectTableProps) {
                                         </td>
                                     </tr>
                                 )}
-                            </>
+                            </Fragment>
                         ))}
                     </tbody>
                 </table>

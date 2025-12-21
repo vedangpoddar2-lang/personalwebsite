@@ -46,3 +46,16 @@
         stroke-dashoffset: 0;
     }
 }
+
+@media (max-width: 600px) {
+    .text {
+        white-space: normal;
+        text-align: center;
+        line-height: 1.4;
+    }
+
+    .container {
+        height: auto;
+        padding: 0.5rem;
+    }
+}
