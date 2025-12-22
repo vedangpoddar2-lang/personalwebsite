@@ -84,7 +84,7 @@ export default function ProjectTable({ items }: ProjectTableProps) {
                                                     {item.title} ↗
                                                 </a>
                                             ) : (
-                                                item.title
+                                                <span className={styles.projectTitle}>{item.title}</span>
                                             )}
                                             {item.category && (
                                                 <span className={styles.categoryBadge}>
