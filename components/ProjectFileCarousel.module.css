@@ -20,6 +20,11 @@
     color: var(--foreground);
     width: 100%;
     transition: opacity 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 0;
 }
 
 .fileLink:hover {
@@ -53,6 +58,18 @@
     background-color: #f5f5f5;
 }
 
+.viewBadge {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    background: rgba(212, 175, 55, 0.9);
+    color: #000;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
 .fileInfo {
     display: flex;
     flex-direction: column;
@@ -70,6 +87,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 160px;
+}
+
+.fileType {
+    font-size: 0.7rem;
+    color: #666;
 }
 
 .counter {
@@ -111,10 +133,8 @@
 @media (max-width: 768px) {
     .carouselContainer {
         width: 80px;
-        /* Fixed width for mobile */
         height: 60px;
         gap: 0;
-        /* Remove gap to fit buttons overlay */
     }
 
     .thumbnailWrapper {
@@ -126,6 +146,11 @@
 
     .fileInfo {
         display: none;
+    }
+
+    .viewBadge {
+        font-size: 0.55rem;
+        padding: 1px 4px;
     }
 
     .navBtn {

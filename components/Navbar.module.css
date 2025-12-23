@@ -86,18 +86,19 @@
     gap: 0.5rem;
     padding: 0.3rem 0.8rem;
     background: transparent;
-    color: #666;
-    border: 1px solid #ccc;
+    color: #b8973a;
+    border: 1px solid #d4af37;
     text-decoration: none;
     border-radius: 100px;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 0.9rem;
     transition: all 0.2s;
 }
 
 .resumeBtn:hover {
-    border-color: var(--primary);
-    color: var(--primary);
+    background: rgba(212, 175, 55, 0.1);
+    border-color: #d4af37;
+    color: #d4af37;
     transform: translateY(-1px);
 }
 

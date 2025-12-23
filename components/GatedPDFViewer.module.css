@@ -1,0 +1,307 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #FFF5F0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.loading,
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    color: #666;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #E5E5E5;
+    border-top-color: #003366;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error {
+    color: #c0392b;
+}
+
+.canvasContainer {
+    position: relative;
+    flex: 1;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    padding: 1rem;
+}
+
+.canvas {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Email Gate Overlay */
+.gateOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 245, 240, 0.95);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.gateContent {
+    background: #fff;
+    border: 1px solid #E5E5E5;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    /* Reduced padding */
+    text-align: center;
+    max-width: 360px;
+    /* Slightly narrower */
+    width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.lockIcon {
+    font-size: 2rem;
+    /* Reduced size */
+    margin-bottom: 0.5rem;
+    /* Reduced margin */
+    color: #003366;
+    display: flex;
+    justify-content: center;
+}
+
+.gateContent h3 {
+    color: #2d2d2d;
+    font-size: 1.15rem;
+    /* Slightly smaller */
+    margin-bottom: 0.25rem;
+    border: none;
+    padding: 0;
+}
+
+.gateContent p {
+    color: #666;
+    margin-bottom: 0.25rem;
+    font-size: 0.85rem;
+}
+
+.subText {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 1rem !important;
+    /* Reduced margin */
+    font-style: italic;
+}
+
+.gateForm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    /* Reduced gap */
+    text-align: left;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.formLabel {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.formInput,
+.formTextarea {
+    padding: 0.5rem 0.75rem;
+    /* Reduced padding */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    color: #2d2d2d;
+    font-size: 0.85rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+    border-color: #003366;
+    box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+}
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+    color: #aaa;
+}
+
+.formTextarea {
+    resize: none;
+    min-height: 40px;
+    /* Reduced height */
+    height: 40px;
+}
+
+.unlockBtn {
+    padding: 0.6rem 1rem;
+    /* Reduced padding */
+    background: #003366;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 0.25rem;
+}
+
+.unlockBtn:hover:not(:disabled) {
+    background: #004488;
+    transform: translateY(-1px);
+}
+
+.unlockBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.backBtn {
+    margin-top: 0.5rem;
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: color 0.2s;
+}
+
+.backBtn:hover {
+    color: #003366;
+}
+
+.successMessage {
+    color: #27ae60;
+    padding: 0.75rem;
+    font-weight: 500;
+}
+
+/* Navigation Controls */
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: #FFF5F0;
+    border-top: 1px solid #E5E5E5;
+}
+
+.navBtn {
+    padding: 0.5rem 1rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.85rem;
+}
+
+.navBtn:hover:not(:disabled) {
+    border-color: #003366;
+    color: #003366;
+}
+
+.navBtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.unlockNavBtn {
+    padding: 0.5rem 1rem;
+    background: #003366;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.85rem;
+}
+
+.unlockNavBtn:hover {
+    background: #004488;
+}
+
+.pageInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.pageText {
+    color: #666;
+}
+
+.previewBadge {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    background: rgba(0, 51, 102, 0.08);
+    color: #003366;
+    border: 1px solid rgba(0, 51, 102, 0.2);
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .controls {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .pageInfo {
+        order: -1;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .navBtn,
+    .unlockNavBtn {
+        flex: 1;
+    }
+
+    .gateContent {
+        padding: 1rem;
+    }
+
+    .gateContent h3 {
+        font-size: 1.1rem;
+    }
+}

@@ -49,15 +49,20 @@ export default function ProjectTable({ items }: ProjectTableProps) {
         <div className={styles.container}>
             {/* Category Filter */}
             <div className={styles.filterContainer}>
-                {categories.map(category => (
-                    <button
-                        key={category}
-                        onClick={() => setSelectedCategory(category as string)}
-                        className={`${styles.filterBtn} ${selectedCategory === category ? styles.activeFilter : ''}`}
-                    >
-                        {category}
-                    </button>
-                ))}
+                {categories.map(category => {
+                    const count = category === 'All'
+                        ? items.length
+                        : items.filter(item => item.category === category).length;
+                    return (
+                        <button
+                            key={category}
+                            onClick={() => setSelectedCategory(category as string)}
+                            className={`${styles.filterBtn} ${selectedCategory === category ? styles.activeFilter : ''}`}
+                        >
+                            {category} ({count})
+                        </button>
+                    );
+                })}
             </div>
 
             <div className={styles.tableWrapper}>
