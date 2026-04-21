@@ -8,6 +8,8 @@ import { highlight } from './highlight'
 import { bentoCard } from './bentoCard'
 import otherExperience from './otherExperience'
 
+import { brainResource } from './brainResource'
+
 export const schema: { types: SchemaTypeDefinition[] } = {
-    types: [profile, workExperience, education, readingItem, project, highlight, bentoCard, otherExperience],
+    types: [profile, workExperience, education, readingItem, project, highlight, bentoCard, otherExperience, brainResource],
 }
